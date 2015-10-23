@@ -35,7 +35,7 @@ module Morpion
 
 	class Board 
 		attr_accessor :boxes
-    attr_accessor :alignments
+    	attr_accessor :alignments
 
 		def initialize
 			self.boxes = []
@@ -97,6 +97,8 @@ module Morpion
 			str
 		end
 
+
+		#On parcours toutes les solution possible par alignement
 		def tmp_show_all_al
 			alignments.each do |alignment|
 				alignment.boxes.each do |box| 
@@ -107,7 +109,6 @@ module Morpion
 					box.player = :none 
 				end
 			end
-			
 		end
 
 		# def checkrow (row)
