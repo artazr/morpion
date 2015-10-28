@@ -93,9 +93,8 @@ module MorpionAlex
 		end 
 
     	def find_best_box
-    		weight_ref = [50, 200, 1000, 4000, 10000]
-	    	weight_computer = [1, 2, 50, 500, 100000]
-	    	weight_user = [2, 4, 100, 1000, 200000]
+	    	weight_computer = [151, 503, 1700, 5500, 200000]
+	    	weight_user = [52, 204, 2000, 5200, 300000]
 	    	weight_boxes = []
 	    	(0..9).each do |i|
 	    		(0..9).each do |j|
@@ -105,13 +104,10 @@ module MorpionAlex
 							user = al.boxes.select{|p| p.player == :user }
 							computer = al.boxes.select{|p| p.player == :computer}
 		    				if computer.count != 0 && user.count==0
-		    					price += weight_ref[computer.count]
 		    					price += weight_computer[computer.count]
 			    			elsif user.count  != 0 && computer.count == 0
 			    				price += weight_user[user.count]
-			    				price += weight_ref[user.count]
 			    			else
-			    				price += weight_ref[0]
 			    				price += weight_user[0]
 			    			end
 			    		end
